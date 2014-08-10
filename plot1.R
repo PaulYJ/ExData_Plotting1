@@ -11,7 +11,7 @@ raw_sel[,1] <- as.Date(raw_sel[,1],"%d/%m/%Y")
 colnames(raw_sel) <- colnames(raw2)
 
 ## Plotting and writing PNG file
+png(filename="plot1.png",width=480,height=480)
 par(bg=NA)
 hist(raw_sel[,3],main="Global Active Power", xlab = "Global Active Power (kilowatts)", col = "red")
-dev.copy(png,filename="plot1.png",width=480,height=480)
 dev.off()
