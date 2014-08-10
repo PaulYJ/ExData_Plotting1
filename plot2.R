@@ -12,7 +12,7 @@ colnames(raw_sel) <- colnames(raw2)
 ## Plotting and writing PNG file
 raw_sel[,10] <- as.POSIXct(paste(raw_sel[,1],raw_sel[,2]))
 colnames(raw_sel)[10] <- "Date-Time"
+png(filename="plot2.png",width=480,height=480)
 par(bg=NA)
 plot(raw_sel[,10],raw_sel[,3],ylab="Global Active Power (kilowatts)",xlab=NA,type='l')
-dev.copy(png,filename="plot2.png",width=480,height=480)
 dev.off()
