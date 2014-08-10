@@ -8,6 +8,8 @@ raw2<-read.table("./household_power_consumption.txt",header = T, sep=";",colClas
 raw_sel<-read.table("./household_power_consumption.txt",header = T, sep=";",colClasses=c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric"), skip = minD-1, nrows=lonD)
 raw_sel[,1] <- as.Date(raw_sel[,1],"%d/%m/%Y")
 colnames(raw_sel) <- colnames(raw2)
+raw_sel[,10] <- as.POSIXct(paste(raw_sel[,1],raw_sel[,2]))
+colnames(raw_sel)[10] <- "Date-Time"
 
 ## Writing PNG file
 png(filename="plot3.png",width=480,height=480)
